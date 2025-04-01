@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("widgets/head") %>
+</head>
+<body>
+    <%- include("widgets/navbar") %>
+
+    <header class="hero">
+        <h1>Overwatch Stories</h1>
+        <p>Dive into the latest updates, lore deep dives, and community discussions about Overwatch.  
+        From hero breakdowns to competitive strategies, stay ahead of the game with fresh content from passionate fans.</p>
+    </header>
+
+    <div class="container">
+        <div class="search-section">
+            <div class="search-dropdown">
+                <select>
+                    <option>TANK</option>
+                    <option>DPS</option>
+                    <option>SUPPORT</option>
+                </select>
+            </div>
+            <div class="search-dropdown">
+                <select>
+                    <option>Heroes</option>
+                    <option>DVA</option>
+                    <option>Mei</option>
+                    <option>Kiriko</option>
+                    <option>Zen</option>
+                </select>
+            </div>
+            <div class="search-input">
+                <input type="text" placeholder="Search Overwatch...">
+                <button class="search-btn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 class="section-title">Blogs</h2>
+                    <section class="blog-list">
+                        <% if (blogs.length > 0) { %>
+                            <% blogs.forEach(blog => { %>
+                                <div class="blog-card">
+                                    <div class="blog-image">
+                                        <img src="<%= blog.image %>" alt="<%= blog.title %>">
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-meta">
+                                            <span>Posted • <%= new Date().toLocaleDateString() %></span>
+                                        </div>
+                                        <h3 class="blog-title"><%= blog.title %></h3>
+                                        <p class="blog-snippet"><%= blog.snippet %></p>
+                                        <a href="/blogs/<%= blog._id %>" class="read-more">Read more</a>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <div class="no-blogs">
+                                <p>There are no blogs to display...</p>
+                                <p>Why not <a href="/blogs/create">create one</a>?</p>
+                            </div>
+                        <% } %>        
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="section-title">Popular</h2>
+                    <div class="sidebar">
+                        <ul class="sidebar-links">
+                            <li>
+                                <a href="#">The Rise and Fall of Overwatch: A History</a>
+                            </li>
+                            <li>
+                                <a href="#">Top 5 Overwatch Heroes for Competitive Play</a>
+                            </li>
+                            <li>
+                                <a href="#">The Lore Behind Talon: Overwatch’s Darkest Secrets</a>
+                            </li>
+                        </ul>
+                        <h3 class="mt-4">Discover More</h3>
+                        <ul class="sidebar-links">
+                            <li><a href="#">Hero Spotlights</a></li>
+                            <li><a href="#">Best Overwatch Skins of All Time</a></li>
+                            <li><a href="#">Overwatch Maps: A Tactical Breakdown</a></li>
+                            <li><a href="#">Easter Eggs & Hidden Secrets</a></li>
+                            <li><a href="#">Overwatch 2: What’s Next?</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("widgets/footer") %>
+</body>
+</html>
