@@ -31,7 +31,7 @@
                 </select>
             </div>
             <div class="search-input">
-                <input type="text" placeholder="Search Overwatch...">
+                <input type="text" id="searchInput" placeholder="Search blogs...">
                 <button class="search-btn">
                     <i class="fa fa-search"></i>
                 </button>
@@ -47,7 +47,7 @@
                             <% blogs.forEach(blog => { %>
                                 <div class="blog-card">
                                     <div class="blog-image">
-                                        <img src="<%= blog.image %>" alt="<%= blog.title %>">
+                                        <img src="<%= blog.image || '/assets/overwatch.avif' %>" alt="<%= blog.title %>">
                                     </div>
                                     <div class="blog-content">
                                         <div class="blog-meta">
@@ -97,5 +97,7 @@
     </div>
 
     <%- include("widgets/footer") %>
+
+    <script src="script.js"></script>
 </body>
 </html>

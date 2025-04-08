@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%- include("widgets/head") %>
+    <%- include("widgets/head") %>
 </head>
 <body>
-  <%- include("widgets/navbar") %>
+    <%- include("widgets/navbar") %>
 
-  <div class="container">
-    <section class="create-blog">
-        <h2>Share Your Overwatch Story</h2>
-        <form action="/blogs" method="POST">
-            <label for="title">Blog Title:</label>
-            <input type="text" id="title" name="title" placeholder="Enter a catchy title..." required>
-            
-            <label for="snippet">Short Description:</label>
-            <input type="text" id="snippet" name="snippet" placeholder="Write a brief description..." required>
-            
-            <label for="body">Your Overwatch Story:</label>
-            <textarea id="body" name="body" placeholder="Share your travel experience in detail..." required></textarea>
-            
-            <button type="submit" class="btn">Post Your Story</button>
-        </form>
-    </section>
-  </div>
+    <div class="container">
+        <div class="create-blog">
+            <h2>Create a New Blog</h2>
+            <form action="/blogs" method="POST">
+                <label for="title">Blog Title:</label>
+                <input type="text" id="title" name="title" required>
+                
+                <label for="snippet">Blog Snippet:</label>
+                <input type="text" id="snippet" name="snippet" required>
+                
+                <label for="body">Blog Content:</label>
+                <textarea id="body" name="body" required></textarea>
+                
+                <label for="image">Image URL (optional):</label>
+                <input type="text" id="image" name="image" placeholder="Path to image (e.g., assets/dva.jpg)">
+                
+                <button class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
 
-  <%- include("widgets/footer") %>
+    <%- include("widgets/footer") %>
 </body>
 </html>
